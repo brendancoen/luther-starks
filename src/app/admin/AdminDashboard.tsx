@@ -3,26 +3,28 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Post } from '@/lib/posts'
-import { CATEGORIES } from '@/lib/posts'
+import { CATEGORIES, slugify } from '@/lib/posts'
 import { createPost, updatePost, deletePost, signOut } from './actions'
 
 type FormState = {
   category: string
   title: string
+  slug: string
   excerpt: string
+  content: string
   read_time: string
   display_date: string
-  url: string
   published: boolean
 }
 
 const EMPTY: FormState = {
   category: CATEGORIES[0],
   title: '',
+  slug: '',
   excerpt: '',
+  content: '',
   read_time: '',
   display_date: '',
-  url: '',
   published: true,
 }
 
@@ -37,18 +39,29 @@ export default function AdminDashboard({
   const [posts, setPosts] = useState<Post[]>(initialPosts)
   const [form, setForm] = useState<FormState>(EMPTY)
   const [editingId, setEditingId] = useState<string | null>(null)
+  const [slugEdited, setSlugEdited] = useState(false)
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState('')
 
+  function onTitleChange(value: string) {
+    setForm((prev) => ({
+      ...prev,
+      title: value,
+      slug: slugEdited ? prev.slug : slugify(value),
+    }))
+  }
+
   function startEdit(p: Post) {
     setEditingId(p.id)
+    setSlugEdited(true)
     setForm({
       category: p.category,
       title: p.title,
+      slug: p.slug || '',
       excerpt: p.excerpt,
+      content: p.content || '',
       read_time: p.read_time || '',
       display_date: p.display_date || '',
-      url: p.url || '',
       published: p.published,
     })
     setMessage('')
@@ -57,6 +70,7 @@ export default function AdminDashboard({
 
   function resetForm() {
     setEditingId(null)
+    setSlugEdited(false)
     setForm(EMPTY)
     setMessage('')
   }
@@ -153,39 +167,58 @@ export default function AdminDashboard({
               <label className={label}>Title</label>
               <input
                 value={form.title}
-                onChange={(e) => setForm({ ...form, title: e.target.value })}
+                onChange={(e) => onTitleChange(e.target.value)}
                 required
                 className={input}
               />
+            </div>
+            <div>
+              <label className={label}>URL Slug</label>
+              <input
+                value={form.slug}
+                onChange={(e) => { setSlugEdited(true); setForm({ ...form, slug: e.target.value }) }}
+                placeholder="auto-generated-from-title"
+                className={input}
+              />
+              <p className="text-xs text-[#E8EAF0]/35 mt-1">The article will live at /insights/{form.slug || 'your-slug'}</p>
             </div>
             <div>
               <label className={label}>Excerpt</label>
               <textarea
                 value={form.excerpt}
                 onChange={(e) => setForm({ ...form, excerpt: e.target.value })}
-                rows={3}
+                rows={2}
                 className={input}
               />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label className={label}>Read Time</label>
-                <input
-                  value={form.read_time}
-                  onChange={(e) => setForm({ ...form, read_time: e.target.value })}
-                  placeholder="e.g. 5 min read"
-                  className={input}
-                />
+            <div>
+              <label className={label}>Article Content (Markdown)</label>
+              <textarea
+                value={form.content}
+                onChange={(e) => setForm({ ...form, content: e.target.value })}
+                rows={14}
+                placeholder="Write the full article here using Markdown..."
+                className={input + ' font-mono text-sm leading-relaxed'}
+              />
+              <div className="text-xs text-[#E8EAF0]/40 mt-2 leading-relaxed">
+                <span className="text-[#E8EAF0]/60">Markdown tips:</span>{' '}
+                <code className="text-[#F0D060]"># Heading</code>,{' '}
+                <code className="text-[#F0D060]">## Subheading</code>,{' '}
+                <code className="text-[#F0D060]">**bold**</code>,{' '}
+                <code className="text-[#F0D060]">*italic*</code>,{' '}
+                <code className="text-[#F0D060]">- bullet</code>,{' '}
+                <code className="text-[#F0D060]">[link](https://...)</code>,{' '}
+                <code className="text-[#F0D060]">&gt; quote</code>. Leave a blank line between paragraphs.
               </div>
-              <div>
-                <label className={label}>Article URL</label>
-                <input
-                  value={form.url}
-                  onChange={(e) => setForm({ ...form, url: e.target.value })}
-                  placeholder="https://... (optional)"
-                  className={input}
-                />
-              </div>
+            </div>
+            <div>
+              <label className={label}>Read Time</label>
+              <input
+                value={form.read_time}
+                onChange={(e) => setForm({ ...form, read_time: e.target.value })}
+                placeholder="e.g. 5 min read"
+                className={input}
+              />
             </div>
             <label className="flex items-center gap-2 text-sm text-[#E8EAF0]/70">
               <input

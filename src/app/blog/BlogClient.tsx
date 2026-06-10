@@ -3,16 +3,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import type { Post } from '@/lib/posts';
-
-const categories = ['All', 'BaaS', 'Payments', 'Embedded Finance', 'Strategy', 'ACH', 'Leadership'];
+import { CATEGORIES } from '@/lib/posts';
 
 export default function BlogClient({ posts }: { posts: Post[] }) {
   const [activeCategory, setActiveCategory] = useState('All');
+  const categories = ['All', ...CATEGORIES];
 
   const filteredPosts =
     activeCategory === 'All'
       ? posts
-      : posts.filter((post) => post.category === activeCategory);
+      : posts.filter((p) => p.category === activeCategory);
 
   return (
     <main className="bg-[#0A0E1A] min-h-screen pt-20">
@@ -78,8 +78,8 @@ export default function BlogClient({ posts }: { posts: Post[] }) {
                     <p className="text-[#E8EAF0]/50 text-sm leading-relaxed flex-1 mb-6">{post.excerpt}</p>
                     <div className="flex items-center justify-between mt-auto pt-5 border-t border-[#D4AF37]/10">
                       <span className="text-[#E8EAF0]/30 text-xs">{post.read_time}</span>
-                      {post.url ? (
-                        <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase">Read More &rarr;</span>
+                      {post.slug ? (
+                        <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase group-hover:text-[#F0D060] transition-colors">Read Article &rarr;</span>
                       ) : (
                         <span className="text-[#E8EAF0]/25 text-xs font-semibold tracking-wider uppercase">Coming Soon</span>
                       )}
@@ -88,35 +88,19 @@ export default function BlogClient({ posts }: { posts: Post[] }) {
                 );
                 const cardClass =
                   'group border border-[#D4AF37]/10 bg-[#0D1225]/60 transition-all duration-300 flex flex-col ' +
-                  (post.url ? 'hover:border-[#D4AF37]/25 cursor-pointer' : 'hover:border-[#D4AF37]/20');
-                return post.url ? (
-                  <a
-                    key={post.id}
-                    href={post.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cardClass}
-                  >
+                  (post.slug ? 'hover:border-[#D4AF37]/25 cursor-pointer' : 'hover:border-[#D4AF37]/20');
+                return post.slug ? (
+                  <Link key={post.id} href={'/insights/' + post.slug} className={cardClass}>
                     {cardInner}
-                  </a>
+                  </Link>
                 ) : (
-                  <article key={post.id} className={cardClass}>
+                  <div key={post.id} className={cardClass}>
                     {cardInner}
-                  </article>
+                  </div>
                 );
               })}
             </div>
           )}
-
-          <div className="mt-20 p-10 border border-[#D4AF37]/15 bg-[#0D1225]/60 text-center">
-            <h3 className="font-display text-3xl font-bold text-[#E8EAF0] mb-3">Stay Ahead of the Curve</h3>
-            <p className="text-[#E8EAF0]/50 mb-8 max-w-lg mx-auto">
-              Get Luther&apos;s latest perspectives on payments, BaaS, and embedded finance delivered directly to your inbox.
-            </p>
-            <Link href="/contact" className="inline-block px-8 py-3 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-sm tracking-wider uppercase hover:bg-[#D4AF37] hover:text-[#0A0E1A] transition-all duration-300">
-              Subscribe to Insights
-            </Link>
-          </div>
         </div>
       </section>
     </main>

@@ -1,6 +1,3 @@
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-
 const stats = [
   { value: '25%', label: 'YoY Fee Income Growth' },
   { value: '2x', label: 'Portfolio Size in 3 Years' },
@@ -32,9 +29,7 @@ const previews = [
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#0A0E1A] text-[#E8EAF0]">
-      <Navigation />
-
+    <main className="bg-[#0A0E1A] text-[#E8EAF0]">
       <section className="relative min-h-screen flex items-center px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.12),transparent_55%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(212,175,55,0.06),transparent_50%)]" />
@@ -184,8 +179,6 @@ export default function HomePage() {
           </a>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

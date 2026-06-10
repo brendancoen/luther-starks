@@ -10,7 +10,6 @@ const navLinks = [
   { href: '/specialties', label: 'Specialties' },
   { href: '/case-studies', label: 'Case Studies' },
   { href: '/blog', label: 'Insights' },
-  { href: '/contact', label: 'Connect' },
 ];
 
 export default function Navigation() {
@@ -35,10 +34,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <span className="flex items-center justify-center w-9 h-9 border border-[#D4AF37]/60 text-[#D4AF37] font-display text-sm font-bold tracking-tight transition-colors duration-300 group-hover:bg-[#D4AF37] group-hover:text-[#0A0E1A]">
-              LS
-            </span>
+          <Link href="/" className="flex items-center group">
             <span className="text-white font-display text-lg font-semibold tracking-wide">
               Luther <span className="text-[#D4AF37]">Starks</span>
             </span>
@@ -118,6 +114,13 @@ export default function Navigation() {
               </Link>
             );
           })}
+          <Link
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+            className="mt-2 px-5 py-3 text-center text-sm font-medium tracking-wider uppercase border border-[#D4AF37]/50 text-[#D4AF37]"
+          >
+            Get in Touch
+          </Link>
         </div>
       </div>
     </nav>

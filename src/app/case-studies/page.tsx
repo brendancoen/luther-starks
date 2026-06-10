@@ -1,5 +1,76 @@
 import Link from 'next/link';
 
+const featured = {
+  tag: 'Banking-as-a-Service',
+  company: 'Nezz × Priority',
+  year: '2022 – Present',
+  title: 'Building the Banking Infrastructure Behind a Real-Time Settlement Fintech',
+  pressRelease:
+    'https://prioritycommerce.com/resource-center/nezz-priority-banking-infrastructure-real-time-settlement/',
+  summary: [
+    'As Vice President of Acquiring and Banking-as-a-Service at Priority, I worked with Nezz, an emerging fintech focused on transforming how businesses execute and settle high-value transactions. The company had developed an innovative approach to real-time settlement but required regulated banking infrastructure, payment capabilities, and strategic banking partnerships to bring its vision to market.',
+    "By leveraging Priority's Banking-as-a-Service platform and embedded payments infrastructure, we helped Nezz launch a scalable solution that enables businesses to move funds with greater speed, transparency, and certainty while reducing reliance on traditional escrow and manual settlement processes.",
+  ],
+  challengeIntro:
+    'Nezz identified a significant problem within the movement of high-value funds. Traditional settlement methods often rely on wire transfers, fragmented payment systems, manual reconciliation, and third-party escrow arrangements. These processes can create:',
+  challengePoints: [
+    'Delayed settlement timelines',
+    'Limited visibility into funds in transit',
+    'Operational inefficiencies',
+    'Increased transaction risk',
+    'Idle capital and lost interest opportunities',
+    'Complex reconciliation workflows',
+  ],
+  challengeOutro:
+    'To bring their platform to market, Nezz needed a banking partner capable of supporting account issuance, payment orchestration, regulatory oversight, and real-time money movement through modern payment rails.',
+  roleIntro:
+    "I led the commercial and strategic engagement between Priority and Nezz, working across product, banking, compliance, operations, and executive leadership teams to design a solution that aligned with Nezz's business model and growth objectives. My responsibilities included:",
+  rolePoints: [
+    'Structuring the Banking-as-a-Service relationship',
+    'Aligning sponsor bank and compliance requirements',
+    'Designing the account and payment infrastructure',
+    'Coordinating cross-functional implementation teams',
+    'Developing the commercial framework for growth',
+    'Establishing a scalable roadmap for future expansion',
+  ],
+  solution: [
+    {
+      title: 'Regulated Banking Infrastructure',
+      body:
+        "Businesses onboarded to accounts provisioned through Priority's banking ecosystem, providing a secure and compliant framework for holding and moving funds.",
+    },
+    {
+      title: 'Real-Time Payment Enablement',
+      body:
+        'The platform was designed to support emerging real-time payment networks, including RTP and FedNow, allowing transactions to move more efficiently than traditional settlement methods.',
+    },
+    {
+      title: 'Account-to-Account Settlement',
+      body:
+        'Rather than relying on traditional escrow structures, funds remained within regulated bank accounts and moved based on transaction instructions established by the participating parties. This created greater transparency and control throughout the settlement lifecycle.',
+    },
+    {
+      title: 'Embedded Financial Infrastructure',
+      body:
+        'By integrating banking and payments directly into the Nezz platform, users gained access to a seamless experience without needing to navigate multiple providers or disconnected systems.',
+    },
+  ],
+  impactIntro:
+    'The partnership enabled Nezz to accelerate its go-to-market strategy while providing the banking foundation necessary to support enterprise-grade transaction workflows. Key outcomes included:',
+  impactPoints: [
+    'Successfully launched a banking-enabled settlement platform',
+    'Reduced complexity associated with high-value transaction processing',
+    'Created a scalable framework for future transaction growth',
+    'Enabled access to modern real-time payment rails',
+    'Improved transparency throughout the settlement process',
+    'Established a regulated banking model capable of supporting enterprise customers',
+  ],
+  strategicValue: [
+    'This engagement highlights the power of combining Banking-as-a-Service infrastructure with modern payment technologies. By aligning fintech innovation with regulated banking capabilities, we helped Nezz bring a differentiated settlement solution to market while maintaining the controls, compliance, and scalability required for long-term success.',
+    'For me, this project represents the type of partnership I enjoy most—bringing together banks, fintech innovators, payment networks, and technology teams to solve complex money movement challenges and create entirely new opportunities within the financial ecosystem.',
+  ],
+};
+
 const caseStudies = [
   {
     tag: 'ACH Origination',
@@ -80,8 +151,124 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
+      {/* Featured Case Study — Nezz */}
+      <section className="pb-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="px-3 py-1 text-xs font-semibold tracking-widest uppercase bg-[#D4AF37] text-[#0A0E1A]">Featured</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent" />
+          </div>
+
+          <div className="border border-[#D4AF37]/20 bg-[#0D1225]/70">
+            {/* Header */}
+            <div className="p-8 md:p-12 border-b border-[#D4AF37]/10">
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-5">
+                <div className="flex items-center gap-3">
+                  <span className="px-3 py-1 text-xs font-semibold tracking-widest uppercase border border-[#D4AF37]/30 text-[#D4AF37]">{featured.tag}</span>
+                  <span className="text-[#E8EAF0]/30 text-sm">{featured.year}</span>
+                </div>
+                <span className="text-[#E8EAF0]/40 text-sm">{featured.company}</span>
+              </div>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-[#E8EAF0] leading-tight max-w-4xl">{featured.title}</h2>
+            </div>
+
+            <div className="p-8 md:p-12 space-y-12">
+              {/* Executive Summary */}
+              <div>
+                <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-4">Executive Summary</h3>
+                <div className="space-y-4 text-[#E8EAF0]/70 leading-relaxed max-w-4xl">
+                  {featured.summary.map((p, i) => (<p key={i}>{p}</p>))}
+                </div>
+              </div>
+
+              {/* The Challenge */}
+              <div>
+                <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-4">The Challenge</h3>
+                <p className="text-[#E8EAF0]/70 leading-relaxed max-w-4xl mb-5">{featured.challengeIntro}</p>
+                <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3 max-w-4xl mb-5">
+                  {featured.challengePoints.map((c) => (
+                    <li key={c} className="flex items-start gap-3 text-[#E8EAF0]/60">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-[#D4AF37]" style={{ transform: 'rotate(45deg)' }} />
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[#E8EAF0]/70 leading-relaxed max-w-4xl">{featured.challengeOutro}</p>
+              </div>
+
+              {/* My Role */}
+              <div>
+                <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-4">My Role</h3>
+                <p className="text-[#E8EAF0]/70 leading-relaxed max-w-4xl mb-5">{featured.roleIntro}</p>
+                <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3 max-w-4xl">
+                  {featured.rolePoints.map((r) => (
+                    <li key={r} className="flex items-start gap-3 text-[#E8EAF0]/60">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 bg-[#D4AF37]" style={{ transform: 'rotate(45deg)' }} />
+                      {r}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* The Solution */}
+              <div>
+                <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-6">The Solution</h3>
+                <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
+                  {featured.solution.map((s) => (
+                    <div key={s.title} className="p-6 border border-[#D4AF37]/10 bg-[#0A0E1A]/50">
+                      <h4 className="font-display text-lg font-bold text-[#E8EAF0] mb-3">{s.title}</h4>
+                      <p className="text-[#E8EAF0]/60 text-sm leading-relaxed">{s.body}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Business Impact */}
+              <div>
+                <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-4">Business Impact</h3>
+                <p className="text-[#E8EAF0]/70 leading-relaxed max-w-4xl mb-5">{featured.impactIntro}</p>
+                <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3 max-w-4xl">
+                  {featured.impactPoints.map((p) => (
+                    <li key={p} className="flex items-start gap-3 text-[#E8EAF0]/70">
+                      <span className="mt-1 text-[#D4AF37]">&#10003;</span>
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Strategic Value */}
+              <div className="border-t border-[#D4AF37]/10 pt-10">
+                <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-4">Strategic Value Delivered</h3>
+                <div className="space-y-4 text-[#E8EAF0]/70 leading-relaxed max-w-4xl">
+                  {featured.strategicValue.map((p, i) => (<p key={i}>{p}</p>))}
+                </div>
+              </div>
+
+              {/* Press Release */}
+              <div className="border-t border-[#D4AF37]/10 pt-8">
+                <a
+                  href={featured.pressRelease}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 border border-[#D4AF37]/40 text-[#D4AF37] font-semibold text-sm tracking-wider uppercase hover:bg-[#D4AF37] hover:text-[#0A0E1A] transition-all duration-300"
+                >
+                  Read the Official Press Release
+                  <span aria-hidden>&rarr;</span>
+                </a>
+                <p className="text-[#E8EAF0]/30 text-xs mt-3">Published on prioritycommerce.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="pb-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-10">
+            <span className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase">More From the Portfolio</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/20 to-transparent" />
+          </div>
           <div className="space-y-12">
             {caseStudies.map((cs, i) => (
               <div key={i} className="border border-[#D4AF37]/10 bg-[#0D1225]/60 hover:border-[#D4AF37]/20 transition-colors duration-300">

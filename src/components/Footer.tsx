@@ -27,11 +27,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6 group w-fit">
-              <span
-                className="block w-7 h-7 bg-gradient-to-br from-[#F0D060] via-[#D4AF37] to-[#B8941F]"
-                style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
-                aria-hidden
-              />
+              <span className="flex items-center justify-center w-8 h-8 border border-[#D4AF37]/60 text-[#D4AF37] font-display text-xs font-bold tracking-tight">
+                LS
+              </span>
               <span className="text-white font-display text-lg font-semibold tracking-wide">
                 Luther <span className="text-[#D4AF37]">Starks</span>
               </span>

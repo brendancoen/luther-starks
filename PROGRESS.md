@@ -13,23 +13,50 @@ Pages: Home, About Luther, Specialties, Case Studies, Blog/Insights, Contact.
 - **Production site:** https://lutherstarks.com (custom domain, HTTPS)
 - **Vercel default:** https://luther-starks.vercel.app
 
-## Tech Stack & Services
+## Tech Stack & Services (full reference)
 
-- **Framework:** Next.js (App Router) + TypeScript + Tailwind CSS
-- **Source control:** GitHub — `brendancoen/luther-starks` (main branch)
-- **Hosting / CI:** Vercel — project `luther-starks` (auto-deploys on push to main)
-- **Domain registrar / DNS:** Squarespace Domains — lutherstarks.com
-- **Database (available, optional):** Supabase — project `Luther_Starks_Website` (id `cmcskjltdcoqqnyuzbvm`)
-- **Transactional email:** Resend — domain `lutherstarks.com` verified (us-east-1)
+### Framework & libraries
+- **Next.js** (App Router) — React framework, server components + server actions.
+- **TypeScript** — typed source across the app.
+- **Tailwind CSS** — utility-first styling (`tailwind.config.ts`, `postcss.config.js`).
+- **Fonts:** Playfair Display (serif display) + Inter (body), via Next font loading.
+- **No external email SDK** — contact form uses the Resend REST API directly via `fetch` (keeps `package.json` lean; no `resend` npm dependency).
+
+### Source control — GitHub
+- Repo: `brendancoen/luther-starks`, default branch `main`.
+- Edits made through the GitHub web UI (no local clone in this workflow).
+
+### Hosting / CI/CD — Vercel
+- Team: `brendancoen-7552s-projects`, project `luther-starks`.
+- Auto-deploys on every push to `main`; production maps to lutherstarks.com.
+- Dashboard: https://vercel.com/brendancoen-7552s-projects/luther-starks
+- Env var `RESEND_API_KEY` set here (server-side only).
+
+### Domain registrar & DNS — Squarespace
+- Domain: lutherstarks.com. Account email: luther@stayon30a.com.
+- DNS settings: https://account.squarespace.com/domains/managed/lutherstarks.com/dns/dns-settings
+- DNS re-auth (password) required for custom record edits — owner enters it.
+
+### Database — Supabase (available, optional)
+- Project: `Luther_Starks_Website`, id `cmcskjltdcoqqnyuzbvm`, org `table-dominance`.
+- Base URL: https://cmcskjltdcoqqnyuzbvm.supabase.co
+- Dashboard: https://supabase.com/dashboard/project/cmcskjltdcoqqnyuzbvm
+- Not currently wired into the live site; reserved for future lead storage.
+
+### Transactional email — Resend
+- Domain `lutherstarks.com` verified, region us-east-1 (North Virginia).
+- Sending ON, Receiving OFF.
+- Domain id `8227e5ea-7331-4b1d-a408-6434b47b7c22`.
+- Dashboard: https://resend.com/domains/8227e5ea-7331-4b1d-a408-6434b47b7c22
+- API key stored as `RESEND_API_KEY` in Vercel (not in repo).
 
 ## Contact Form (lead capture)
 
-- **Server action:** `src/app/contact/actions.ts` — `sendContactMessage(form)`. Uses the Resend REST API via `fetch` (no npm dependency added).
+- **Server action:** `src/app/contact/actions.ts` — `sendContactMessage(form)`. Resend REST API via `fetch` -> POST https://api.resend.com/emails.
 - **From:** leads@lutherstarks.com (display "Luther Starks Website")
 - **To:** Luther.Starks@prth.com
 - **Reply-To:** the prospect's submitted email address
 - **UI:** `src/app/contact/page.tsx` calls the action with loading / error / success states.
-- **API key:** `RESEND_API_KEY` stored in Vercel env, read server-side only.
 
 ## DNS Configuration (Squarespace)
 
@@ -45,6 +72,13 @@ Resend sending records (do NOT remove):
 Pre-existing email policy records (left untouched):
 - TXT `@` -> v=spf1 -all
 - TXT `_dmarc` -> v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s
+
+## Design System
+
+- Backgrounds: #0A0E1A (base), #0D1225 (mid), #060912 (footer)
+- Accent gold: #D4AF37 / #F0D060 / #B8941F
+- Text: #E8EAF0
+- Boxed "LS" monogram logo.
 
 ## Status
 
@@ -69,3 +103,4 @@ Pre-existing email policy records (left untouched):
 - Luther LinkedIn: https://www.linkedin.com/in/luther-starks-64723223/
 - Priority: https://prioritycommerce.com/
 - Nezz: https://nezzapp.com/
+- Nezz press release: https://prioritycommerce.com/resource-center/nezz-priority-banking-infrastructure-real-time-settlement/

@@ -3,7 +3,7 @@ const specialties = [
     category: 'Core Discipline',
     title: 'Acquiring & Payment Processing',
     description:
-      'End-to-end ownership of merchant acquiring strategy—from underwriting and risk to pricing, settlement, and processor relationships that scale profitably.',
+      'End-to-end ownership of merchant acquiring strategy\u2014from underwriting and risk to pricing, settlement, and processor relationships that scale profitably.',
     capabilities: [
       'Merchant portfolio growth & retention',
       'Interchange & pricing optimization',
@@ -27,7 +27,7 @@ const specialties = [
     category: 'Strategic Growth',
     title: 'Embedded Finance',
     description:
-      'Bringing financial services to the point of need—lending, payments, and accounts woven directly into software experiences.',
+      'Bringing financial services to the point of need\u2014lending, payments, and accounts woven directly into software experiences.',
     capabilities: [
       'Embedded lending & payments',
       'Platform monetization strategy',
@@ -39,7 +39,7 @@ const specialties = [
     category: 'Enterprise Payments',
     title: 'Commercial Payments',
     description:
-      'Modernizing B2B money movement—ACH, virtual cards, and payables automation that unlock working capital and fee income.',
+      'Modernizing B2B money movement\u2014ACH, virtual cards, and payables automation that unlock working capital and fee income.',
     capabilities: [
       'ACH origination at scale',
       'Virtual card & payables programs',
@@ -63,7 +63,7 @@ const specialties = [
     category: 'Results',
     title: 'Business Development & Growth',
     description:
-      'Translating market insight into revenue—building the pipelines, teams, and playbooks that drive durable, profitable growth.',
+      'Translating market insight into revenue\u2014building the pipelines, teams, and playbooks that drive durable, profitable growth.',
     capabilities: [
       'Revenue & pipeline development',
       'Team building & enablement',
@@ -75,23 +75,25 @@ const specialties = [
 
 export default function SpecialtiesPage() {
   return (
-    <main className="min-h-screen bg-[#0A0E1A] text-[#E8EAF0]">
-      <section className="relative pt-40 pb-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.08),transparent_60%)]" />
-        <div className="relative max-w-5xl mx-auto text-center">
-          <p className="text-[#D4AF37] tracking-[0.3em] text-sm uppercase mb-6">
-            Areas of Expertise
-          </p>
-          <h1 className="font-[Playfair_Display] text-5xl md:text-7xl font-bold leading-tight">
+    <main className="bg-[#0A0E1A] min-h-screen pt-20">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/20 to-transparent" />
+          <div className="absolute top-1/3 right-0 w-96 h-96 bg-[#D4AF37]/4 rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="h-px w-8 bg-[#D4AF37]" />
+            <span className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase">Areas of Expertise</span>
+          </div>
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-[#E8EAF0] leading-tight mb-6 max-w-3xl">
             Specialized{' '}
-            <span className="bg-gradient-to-r from-[#D4AF37] via-[#F0D060] to-[#B8941F] bg-clip-text text-transparent">
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #D4AF37, #F0D060)' }}>
               Domains
             </span>
           </h1>
-          <p className="mt-8 text-lg text-[#A0A6B8] max-w-2xl mx-auto leading-relaxed">
-            Two decades at the intersection of payments, banking, and fintech—
-            distilled into the disciplines where I create the most leverage for
-            ambitious organizations.
+          <p className="text-[#E8EAF0]/60 text-xl leading-relaxed max-w-2xl">
+            Two decades at the intersection of payments, banking, and fintech\u2014distilled into the disciplines where I create the most leverage for ambitious organizations.
           </p>
         </div>
       </section>

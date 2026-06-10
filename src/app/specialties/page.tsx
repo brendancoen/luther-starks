@@ -93,7 +93,7 @@ export default function SpecialtiesPage() {
             </span>
           </h1>
           <p className="text-[#E8EAF0]/60 text-xl leading-relaxed max-w-2xl">
-            Two decades at the intersection of payments, banking, and fintech\u2014distilled into the disciplines where I create the most leverage for ambitious organizations.
+            Two decades at the intersection of payments, banking, and fintech&mdash;distilled into the disciplines where I create the most leverage for ambitious organizations.
           </p>
         </div>
       </section>

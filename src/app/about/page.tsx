@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const timeline = [
   {
@@ -53,12 +54,15 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div className="relative">
               <div className="aspect-[4/5] bg-[#0D1225] border border-[#D4AF37]/15 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-8xl font-display font-bold text-transparent bg-clip-text mx-auto mb-4" style={{ backgroundImage: 'linear-gradient(135deg, #D4AF37, #F0D060)' }}>LS</div>
-                    <div className="text-[#E8EAF0]/20 text-sm tracking-widest uppercase">Luther Starks</div>
-                  </div>
-                </div>
+                <Image
+                  src="/luther-starks.jpg"
+                  alt="Luther Starks, VP of Acquiring and BaaS at Priority"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E1A] via-transparent to-transparent pointer-events-none" />
                 <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#D4AF37]/40" />
                 <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-[#D4AF37]/40" />
                 <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-[#D4AF37]/40" />

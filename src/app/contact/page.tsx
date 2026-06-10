@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
 
 const contactReasons = [
   'Strategic Partnership Opportunity',
@@ -35,8 +33,6 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-[#0A0E1A] text-[#E8EAF0]">
-      <Navigation />
-
       <section className="relative pt-40 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.08),transparent_60%)]" />
         <div className="relative max-w-4xl mx-auto text-center">
@@ -69,7 +65,7 @@ export default function ContactPage() {
                 note. I personally review every message.
               </p>
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/luther-starks-64723223/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-[#D4AF37] hover:text-[#F0D060] transition-colors font-medium"
@@ -187,8 +183,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

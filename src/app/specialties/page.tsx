@@ -1,6 +1,3 @@
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-
 const specialties = [
   {
     category: 'Core Discipline',
@@ -79,8 +76,6 @@ const specialties = [
 export default function SpecialtiesPage() {
   return (
     <main className="min-h-screen bg-[#0A0E1A] text-[#E8EAF0]">
-      <Navigation />
-
       <section className="relative pt-40 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.08),transparent_60%)]" />
         <div className="relative max-w-5xl mx-auto text-center">
@@ -148,8 +143,6 @@ export default function SpecialtiesPage() {
           </a>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

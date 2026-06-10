@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const contactReasons = [
   'Strategic Partnership Opportunity',
@@ -50,6 +51,21 @@ export default function ContactPage() {
             expertise, or building the next chapter in payments and embedded finance,
             I welcome the conversation.
           </p>
+        </div>
+      </section>
+
+      <section className="px-6 pb-12">
+        <div className="relative max-w-5xl mx-auto rounded-2xl overflow-hidden border border-[#D4AF37]/20 shadow-2xl">
+          <div className="relative aspect-[16/9]">
+            <Image
+              src="/luther-starks-contact.jpg"
+              alt="Luther Starks"
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0E1A]/70 via-transparent to-transparent pointer-events-none" />
+          </div>
         </div>
       </section>
 

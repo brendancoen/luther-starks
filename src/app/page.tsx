@@ -1,7 +1,7 @@
 const stats = [
-  { value: '25%', label: 'YoY Fee Income Growth' },
-  { value: '2x', label: 'Portfolio Size in 3 Years' },
-  { value: '#6', label: 'Payroll Processor Among Peers' },
+  { value: '10,000+', label: 'Consulted Fintechs' },
+  { value: '350', label: 'Fintechs Live' },
+  { value: '$1B+', label: 'Card Processing' },
 ];
 
 const expertise = [

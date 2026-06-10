@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Luther Starks | Payments, Banking & Fintech Leader',
@@ -15,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#0A0E1A] text-[#E8EAF0] antialiased">
+        <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   )

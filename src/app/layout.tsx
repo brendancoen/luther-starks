@@ -3,7 +3,7 @@ import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
-const siteUrl = 'https://luther-starks.vercel.app'
+const siteUrl = 'https://lutherstarks.com'
 const title = 'Luther Starks | Payments, Banking & Fintech Leader'
 const description =
   'Luther Starks \u2014 VP of Acquiring and Banking-as-a-Service at Priority. A recognized leader in payments, banking, and fintech, building high-growth businesses and forging strategic partnerships across acquiring, BaaS, and embedded finance.'

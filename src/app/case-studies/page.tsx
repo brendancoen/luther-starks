@@ -8,8 +8,10 @@ const featured = {
   title: 'Building the Banking Infrastructure Behind a Real-Time Settlement Fintech',
   pressRelease:
     'https://prioritycommerce.com/resource-center/nezz-priority-banking-infrastructure-real-time-settlement/',
-  summaryBeforeLink:
-    'As Vice President of Acquiring and Banking-as-a-Service at Priority, I worked with ',
+  summaryStart:
+    'As Vice President of Acquiring and Banking-as-a-Service at ',
+  summaryMid:
+    ', I worked with ',
   summaryAfterLink:
     ', an emerging fintech focused on transforming how businesses execute and settle high-value transactions. The company had developed an innovative approach to real-time settlement but required regulated banking infrastructure, payment capabilities, and strategic banking partnerships to bring its vision to market.',
   summaryRest: [
@@ -171,17 +173,25 @@ export default function CaseStudiesPage() {
                   <span className="px-3 py-1 text-xs font-semibold tracking-widest uppercase border border-[#D4AF37]/30 text-[#D4AF37]">{featured.tag}</span>
                   <span className="text-[#E8EAF0]/30 text-sm">{featured.year}</span>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <a
                     href="https://nezzapp.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center rounded-md bg-[#0A0E1A] border border-[#D4AF37]/15 px-3 py-2 hover:border-[#D4AF37]/40 transition-colors duration-300"
+                    className="flex items-center rounded-md bg-black border border-[#D4AF37]/15 px-4 py-2.5 hover:border-[#D4AF37]/40 transition-colors duration-300"
                     aria-label="Visit Nezz website"
                   >
-                    <Image src="/nezz-logo.png" alt="Nezz" width={72} height={28} className="h-6 w-auto object-contain" />
+                    <Image src="/nezz-logo.png" alt="Nezz" width={108} height={42} className="h-9 w-auto object-contain" />
                   </a>
-                  <span className="text-[#E8EAF0]/40 text-sm">{featured.company}</span>
+                  <a
+                    href="https://prioritycommerce.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center rounded-md bg-[#04261C] border border-[#D4AF37]/15 px-3 py-2 hover:border-[#D4AF37]/40 transition-colors duration-300"
+                    aria-label="Visit Priority website"
+                  >
+                    <Image src="/priority-logo.png" alt="Priority" width={56} height={56} className="h-12 w-auto object-contain" />
+                  </a>
                 </div>
               </div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-[#E8EAF0] leading-tight max-w-4xl">{featured.title}</h2>
@@ -193,7 +203,16 @@ export default function CaseStudiesPage() {
                 <h3 className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-4">Executive Summary</h3>
                 <div className="space-y-4 text-[#E8EAF0]/70 leading-relaxed max-w-4xl">
                   <p>
-                    {featured.summaryBeforeLink}
+                    {featured.summaryStart}
+                    <a
+                      href="https://prioritycommerce.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#D4AF37] underline decoration-[#D4AF37]/40 underline-offset-2 hover:decoration-[#D4AF37] transition-colors"
+                    >
+                      Priority
+                    </a>
+                    {featured.summaryMid}
                     <a
                       href="https://nezzapp.com/"
                       target="_blank"

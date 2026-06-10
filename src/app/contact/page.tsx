@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { sendContactMessage } from './actions';
 
 const contactReasons = [
   'Strategic Partnership Opportunity',
@@ -13,6 +14,8 @@ const contactReasons = [
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -27,9 +30,17 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setErrorMsg('');
+    const result = await sendContactMessage(form);
+    setSending(false);
+    if (result.ok) {
+      setSubmitted(true);
+    } else {
+      setErrorMsg(result.error);
+    }
   };
 
   return (
@@ -190,10 +201,14 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-lg bg-gradient-to-r from-[#D4AF37] via-[#F0D060] to-[#B8941F] text-[#0A0E1A] font-semibold tracking-wide hover:opacity-90 transition-opacity"
+                  disabled={sending}
+                  className="w-full py-4 rounded-lg bg-gradient-to-r from-[#D4AF37] via-[#F0D060] to-[#B8941F] text-[#0A0E1A] font-semibold tracking-wide hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {sending ? 'Sending\u2026' : 'Send Message'}
                 </button>
+                {errorMsg && (
+                  <p className="mt-4 text-sm text-red-400">{errorMsg}</p>
+                )}
               </form>
             )}
           </div>

@@ -1,6 +1,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Case Studies',
+  description:
+    'Selected case studies from Luther Starks \u2014 measurable results in merchant acquiring, Banking-as-a-Service, and payments growth.',
+  alternates: { canonical: '/case-studies' },
+  openGraph: {
+    title: 'Case Studies | Luther Starks',
+    description:
+      'Measurable results in merchant acquiring, BaaS, and payments growth.',
+    url: '/case-studies',
+  },
+};
+
 const featured = {
   tag: 'Banking-as-a-Service',
   company: 'Nezz \u00d7 Priority',

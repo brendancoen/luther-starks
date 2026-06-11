@@ -1,6 +1,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Luther',
+  description:
+    'Learn about Luther Starks, VP of Acquiring and Banking-as-a-Service at Priority — a payments and fintech leader with a track record of building merchant acquiring and BaaS programs.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Luther | Luther Starks',
+    description:
+      'Payments and fintech leader specializing in merchant acquiring and Banking-as-a-Service at Priority.',
+    url: '/about',
+  },
+};
+
 const timeline = [
   {
     period: '2022 — Present',

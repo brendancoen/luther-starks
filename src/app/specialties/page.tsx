@@ -1,3 +1,18 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Specialties',
+  description:
+    'Luther Starks\u2019s areas of expertise: merchant acquiring, Banking-as-a-Service, embedded finance, payments strategy, and fintech partnerships.',
+  alternates: { canonical: '/specialties' },
+  openGraph: {
+    title: 'Specialties | Luther Starks',
+    description:
+      'Merchant acquiring, Banking-as-a-Service, embedded finance, and payments strategy expertise.',
+    url: '/specialties',
+  },
+};
+
 const specialties = [
   {
     category: 'Core Discipline',

@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 const siteUrl = 'https://lutherstarks.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ['', '/about', '/specialties', '/case-studies', '/insights', '/blog', '/contact'];
+  const routes = ['', '/about', '/specialties', '/case-studies', '/blog', '/contact'];
   const lastModified = new Date();
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,

@@ -88,6 +88,9 @@ Pre-existing email policy records (left untouched):
 - [x] Resend domain verified
 - [x] Contact form wired end-to-end (sends real leads to Luther.Starks@prth.com)
 - [x] siteUrl / metadataBase set to https://lutherstarks.com
+- [x] sitemap.xml (auto-generated via src/app/sitemap.ts)
+- [x] robots.txt (auto-generated via src/app/robots.ts; disallows /admin, /login)
+- [x] Unique per-page titles & descriptions (About, Specialties, Case Studies, Blog/Insights, Contact)
 
 ## Open / Backlog
 
@@ -97,6 +100,19 @@ Pre-existing email policy records (left untouched):
 - [ ] Real Case Study content (currently placeholder)
 - [ ] Real Blog/Insights articles (currently placeholder)
 - [ ] Homepage "track record" 01/02/03 stats left as-is per owner request
+
+## SEO
+
+- sitemap: src/app/sitemap.ts — routes: /, /about, /specialties, /case-studies, /blog, /contact.
+- robots: src/app/robots.ts — allow all; disallow /admin and /login; declares host + sitemap URL.
+- Per-page metadata: each page exports `metadata` (title + description + canonical + openGraph). Contact is a client component, so its metadata lives in src/app/contact/layout.tsx.
+- Title template is '%s | Luther Starks' (set in layout.tsx); page titles supply the prefix.
+- NOTE: src/app/insights/page.tsx contains the literal text '404: Not Found' (not real code) so /insights 404s. It was removed from the sitemap. Either build a real Insights page or delete the route. The live Insights content is at /blog.
+
+### SEO backlog
+- [ ] 1200x630 OG share image (og:image is still a small placeholder SVG).
+- [ ] JSON-LD structured data (Person + Organization/WebSite schema).
+- [ ] Decide fate of /insights route (build real page or delete the broken stub).
 
 ## Key References
 
